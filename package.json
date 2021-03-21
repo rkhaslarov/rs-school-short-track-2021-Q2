@@ -1,0 +1,21 @@
+{
+  "name": "rs-school-short-track-2021",
+  "version": "1.0.0",
+  "description": "RS School short track tasks 2021",
+  "scripts": {
+    "test": "npm run lint && mocha",
+    "lint": "node node_modules/eslint/bin/eslint.js ./src"
+  },
+  "author": "aorgish, mikhama",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rkhaslarov/rs-school-short-track-2021.git"
+  }
+}
