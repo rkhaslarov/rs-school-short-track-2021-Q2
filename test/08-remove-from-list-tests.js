@@ -26,5 +26,3 @@ describe('08-remove-from-list', () => {
     assert.deepEqual(removeKFromList(initial, 3), expected);
   });
 });
-
-// matrix - 2 arrays - 3 list - 1 string - 3 numbers - 2 algo - 2 objects - 1
