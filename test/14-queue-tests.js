@@ -8,7 +8,7 @@ describe('14-queue', () => {
     assert.doesNotThrow(() => queue.enqueue(5));
     assert.doesNotThrow(() => queue.enqueue(6));
     assert.doesNotThrow(() => queue.enqueue(7));
-    assert.equal(queue.dequeue(), 5);
-    assert.equal(queue.dequeue(), 6);
+    assert.strictEqual(queue.dequeue(), 5);
+    assert.strictEqual(queue.dequeue(), 6);
   });
 });
