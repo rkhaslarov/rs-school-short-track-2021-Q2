@@ -4,10 +4,10 @@ it.optional = require('../extensions/it-optional');
 
 describe('11-encode-line', () => {
   it.optional('should return encoding version of string', () => {
-    assert.equal(encodeLine('aaaatttt'), '4a4t');
-    assert.equal(encodeLine('aabbccc'), '2a2b3c');
-    assert.equal(encodeLine('abbcca'), 'a2b2ca');
-    assert.equal(encodeLine('xyz'), 'xyz');
-    assert.equal(encodeLine(''), '');
+    assert.strictEqual(encodeLine('aaaatttt'), '4a4t');
+    assert.strictEqual(encodeLine('aabbccc'), '2a2b3c');
+    assert.strictEqual(encodeLine('abbcca'), 'a2b2ca');
+    assert.strictEqual(encodeLine('xyz'), 'xyz');
+    assert.strictEqual(encodeLine(''), '');
   });
 });

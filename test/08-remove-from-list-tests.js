@@ -1,11 +1,7 @@
 const assert = require('assert');
+const ListNode = require('../extensions/list-node');
 const removeKFromList = require('../src/08-remove-from-list');
 it.optional = require('../extensions/it-optional');
-
-function ListNode(x) {
-  this.value = x;
-  this.next = null;
-}
 
 function convertArrayToList(arr) {
   return arr.reverse().reduce((acc, cur) => {
