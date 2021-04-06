@@ -4,7 +4,7 @@ const List = require('../extensions/list-helpers');
 const Queue = require('../src/14-queue');
 it.optional = require('../extensions/it-optional');
 
-describe.only('14-queue', () => {
+describe('14-queue', () => {
   const sandbox = sinon.createSandbox();
 
   afterEach(() => {
