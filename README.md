@@ -42,7 +42,7 @@ Hope you will enjoy it!
 
 ## Submit to [rs app](https://app.rs.school/)
 1. Open [rs app](https://app.rs.school/) and login
-2. Go to [submit task page](https://app.rs.school/course/submit-task)
+2. Go to [submit task page](https://app.rs.school/course/student/auto-test?course=js-fe-2021Q1)
 3. Select your task (Short Track 2021)
 4. Press submit button and enjoy
 
