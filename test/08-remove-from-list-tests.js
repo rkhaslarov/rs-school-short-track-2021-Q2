@@ -1,17 +1,17 @@
 const assert = require('assert');
-const List = require('../extensions/list-helpers');
+const ListNode = require('../extensions/list-node');
 const removeKFromList = require('../src/08-remove-from-list');
 it.optional = require('../extensions/it-optional');
 
 function convertArrayToList(arr) {
   return arr.reverse().reduce((acc, cur) => {
     if (acc) {
-      const node = List.createNode(cur);
+      const node = new ListNode(cur);
       node.next = acc;
       return node;
     }
 
-    return List.createNode(cur);
+    return new ListNode(cur);
   }, null);
 }
 

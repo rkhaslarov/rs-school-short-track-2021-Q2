@@ -1,7 +1,6 @@
-// const List = require('../extensions/list-helpers');
+// const ListNode = require('../extensions/list-node');
 /**
  * Implement the Queue with a given interface via linked list (use ListNode extension above).
- * Mandatory to use it like - List.createNode(value);
  *
  * @example
  * const queue = new Queue();
