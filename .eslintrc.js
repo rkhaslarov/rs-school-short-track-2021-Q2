@@ -5,9 +5,7 @@ module.exports = {
     node: true,
     mocha: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
+  extends: ['airbnb-base'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -20,5 +18,6 @@ module.exports = {
     'no-plusplus': 'off',
     'func-names': 'off',
     'space-before-function-paren': 'off',
+    'linebreak-style': 0,
   },
 };
