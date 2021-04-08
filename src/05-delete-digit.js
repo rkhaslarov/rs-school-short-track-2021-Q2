@@ -9,8 +9,29 @@
  * For n = 152, the output should be 52
  *
  */
-function deleteDigit(/* n */) {
-  throw new Error('Not implemented');
+function deleteDigit(n) {
+  let digits = [];
+    if(n < 10)
+    {
+      return n;
+    }
+    do
+    {
+      digits.push(n % 10);
+      n = Math.floor(n / 10);
+    }
+    while(n > 9);
+    digits.push(n);
+    digits.reverse();
+
+    let minDigit = digits[0];
+    digits.forEach(function(digit) {
+      minDigit = minDigit > digit ? digit : minDigit;
+    });
+    let minDigitIndex = digits.indexOf(minDigit);
+    digits.splice(minDigitIndex, 1);
+
+    return digits.join('');
 }
 
 module.exports = deleteDigit;
