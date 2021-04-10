@@ -17,27 +17,28 @@ function getSumOfDigits(n) {
   }
   else
   {
-      return getSumDigits(n);
+    let n1 = getNewSum(n);
+    return getSumOfDigits(n1);
   }
 }
 
-function getSumDigits(number) {
-  let digits = getArrayDigits(n);
+function getNewSum(number) {
+  let digits = getDigits(number);
   return digits.reduce((acc, digit) => acc + digit);
 }
 
-function getArrayDigits(number) {
-  let arrayDigits = [];
+function getDigits(number) {
+  let digits = [];
   do
   {
-    arrayDigits.push(n % 10);
-    n = Math.floor(n / 10);
+    let digit = number % 10;
+    number = Math.floor(number / 10);
+    digits.push(digit);
   }
-  while(n > 9);
-  arrayDigits.push(n);
-  arrayDigits.reverse();
+  while(number > 9);
+  digits.push(number);
 
-  return arrayDigits;
+  return digits;
 }
 
 module.exports = getSumOfDigits;
