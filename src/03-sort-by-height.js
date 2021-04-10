@@ -10,18 +10,17 @@
  * The result should be [-1, 150, 160, 170, -1, -1, 180, 190]
  */
 function sortByHeight(arr) {
-  let sortedArray = [];
+  const sortedArray = [];
 
-  arr.forEach(function(currentValue) {
-    if(currentValue !== -1)
-    {
+  arr.forEach((currentValue) => {
+    if (currentValue !== -1) {
       sortedArray.push(currentValue);
     }
   });
 
   sortedArray.sort((val1, val2) => val1 - val2).reverse();
 
-  return arr.map(currentValue => currentValue !== -1 ? sortedArray.pop() : currentValue);
+  return arr.map((currentValue) => (currentValue !== -1 ? sortedArray.pop() : currentValue));
 }
 
 module.exports = sortByHeight;

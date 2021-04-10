@@ -14,38 +14,28 @@
  *
  */
 function renameFiles(names) {
-  if(names.length === 0)
-  {
+  if (names.length === 0) {
     return [];
   }
-  let convertedFileNames = [];
+  const convertedFileNames = [];
   convertedFileNames[0] = names[0];
 
-  for(let i = 1; i < names.length; i++)
-  {
-    if(convertedFileNames.includes(names[i]))
-    {
+  for (let i = 1; i < names.length; i++) {
+    if (convertedFileNames.includes(names[i])) {
       let amount = 0;
       let newFileName = '';
-      for(let j = 0; j < i; j++)
-      {
-        if(names[j] === names[i])
-        {
+      for (let j = 0; j < i; j++) {
+        if (names[j] === names[i]) {
           amount++;
         }
       }
-      if(amount === 0)
-      {
+      if (amount === 0) {
         newFileName = names[i].concat('(1)');
-      }
-      else
-      {
+      } else {
         newFileName = names[i].includes(')') ? names[i].concat(`(${amount + 1})`) : names[i].concat(`(${amount})`);
       }
       convertedFileNames.push(newFileName);
-    }
-    else
-    {
+    } else {
       convertedFileNames.push(names[i]);
     }
   }

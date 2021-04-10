@@ -10,28 +10,26 @@
  *
  */
 function deleteDigit(n) {
-  let digits = [];
-    if(n < 10)
-    {
-      return n;
-    }
-    do
-    {
-      digits.push(n % 10);
-      n = Math.floor(n / 10);
-    }
-    while(n > 9);
-    digits.push(n);
-    digits.reverse();
+  const digits = [];
+  if (n < 10) {
+    return n;
+  }
+  do {
+    digits.push(n % 10);
+    n = Math.floor(n / 10);
+  }
+  while (n > 9);
+  digits.push(n);
+  digits.reverse();
 
-    let minDigit = digits[0];
-    digits.forEach(function(digit) {
-      minDigit = minDigit > digit ? digit : minDigit;
-    });
-    let minDigitIndex = digits.indexOf(minDigit);
-    digits.splice(minDigitIndex, 1);
+  let minDigit = digits[0];
+  digits.forEach((digit) => {
+    minDigit = minDigit > digit ? digit : minDigit;
+  });
+  const minDigitIndex = digits.indexOf(minDigit);
+  digits.splice(minDigitIndex, 1);
 
-    return digits.join('');
+  return digits.join('');
 }
 
 module.exports = deleteDigit;

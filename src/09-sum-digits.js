@@ -11,31 +11,27 @@
  *
  */
 function getSumOfDigits(n) {
-  if(n < 10)
-  {
+  if (n < 10) {
     return n;
   }
-  else
-  {
-    let n1 = getNewSum(n);
-    return getSumOfDigits(n1);
-  }
+
+  const n1 = getNewSum(n);
+  return getSumOfDigits(n1);
 }
 
 function getNewSum(number) {
-  let digits = getDigits(number);
+  const digits = getDigits(number);
   return digits.reduce((acc, digit) => acc + digit);
 }
 
 function getDigits(number) {
-  let digits = [];
-  do
-  {
-    let digit = number % 10;
+  const digits = [];
+  do {
+    const digit = number % 10;
     number = Math.floor(number / 10);
     digits.push(digit);
   }
-  while(number > 9);
+  while (number > 9);
   digits.push(number);
 
   return digits;
