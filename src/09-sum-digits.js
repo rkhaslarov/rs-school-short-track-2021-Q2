@@ -10,31 +10,27 @@
  * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
  *
  */
-function getSumOfDigits(n) {
-  if (n < 10) {
-    return n;
-  }
-
-  const n1 = getNewSum(n);
-  return getSumOfDigits(n1);
-}
-
-function getNewSum(number) {
-  const digits = getDigits(number);
-  return digits.reduce((acc, digit) => acc + digit);
-}
-
-function getDigits(number) {
+function getDigits(num) {
   const digits = [];
+  let number = num;
   do {
     const digit = number % 10;
     number = Math.floor(number / 10);
     digits.push(digit);
-  }
-  while (number > 9);
+  } while (number > 9);
   digits.push(number);
-
   return digits;
+}
+function getNewSum(number) {
+  const digits = getDigits(number);
+  return digits.reduce((acc, digit) => acc + digit);
+}
+function getSumOfDigits(n) {
+  if (n < 10) {
+    return n;
+  }
+  const n1 = getNewSum(n);
+  return getSumOfDigits(n1);
 }
 
 module.exports = getSumOfDigits;
