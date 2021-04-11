@@ -11,22 +11,24 @@
  * For ([1, 2, 3], 2) should return 1
  *
  */
-function findValueIndex(array, value, currentIndex) {
-  if (value === array[currentIndex]) {
-    return currentIndex;
+function findValueIndex(array, value, left, right) {
+  const middleIndex = Math.trunc((left + right) / 2);
+  if (right - left === 1) {
+    if (array[left] === value) {
+      return left;
+    }
+    return right;
   }
-  const middelValue = Math.floor(currentIndex / 2);
-  let nextIndex;
-  if (value < array[currentIndex]) {
-    nextIndex = currentIndex - middelValue;
-  } else {
-    nextIndex = currentIndex + middelValue;
+  if (value === array[middleIndex]) {
+    return middleIndex;
   }
-  return findValueIndex(array, value, nextIndex);
+  if (value < array[middleIndex]) {
+    return findValueIndex(array, value, left, middleIndex);
+  }
+  return findValueIndex(array, value, middleIndex, right);
 }
 function findIndex(array, value) {
-  const middlePosition = Math.floor(array.length / 2);
-  const valueIndex = findValueIndex(array, value, middlePosition);
+  const valueIndex = findValueIndex(array, value, 0, array.length - 1);
   return valueIndex;
 }
 

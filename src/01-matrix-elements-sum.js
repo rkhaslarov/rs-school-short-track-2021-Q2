@@ -16,25 +16,13 @@
  */
 function getMatrixElementsSum(matrix) {
   let sum = 0;
-  let isZero = false;
-
-  for (let i = 1; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] === 0) {
-        isZero = true;
-        for (let k = i - 1; k > -1; k--) {
-          if (matrix[k][j] !== 0) {
-            sum += matrix[k][j];
-          }
-        }
-      }
-    }
-  }
-  if (!isZero) {
+  for (let j = 0; j < matrix[0].length; j++) {
     for (let i = 0; i < matrix.length; i++) {
-      matrix[i].forEach((value) => {
-        sum += value;
-      });
+      if (matrix[i][j] !== 0) {
+        sum += matrix[i][j];
+      } else {
+        break;
+      }
     }
   }
   return sum;

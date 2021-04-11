@@ -14,7 +14,6 @@ function encodeLine(str) {
   }
   let resultStr = '';
   const chars = str.split('');
-  chars.sort();
   for (let i = 0; i < chars.length; i++) {
     let amountChars = 1;
     for (let j = i + 1; j < chars.length; j) {
