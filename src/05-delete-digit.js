@@ -29,8 +29,9 @@ function deleteDigit(n) {
   });
   const minDigitIndex = digits.indexOf(minDigit);
   digits.splice(minDigitIndex, 1);
+  const resString = digits.join('');
 
-  return digits.join('');
+  return parseInt(resString, 10);
 }
 
 module.exports = deleteDigit;
