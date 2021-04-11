@@ -11,15 +11,16 @@
  */
 function deleteDigit(n) {
   const digits = [];
-  if (n < 10) {
-    return n;
+  let number = n;
+  if (number < 10) {
+    return number;
   }
   do {
-    digits.push(n % 10);
-    n = Math.floor(n / 10);
+    digits.push(number % 10);
+    number = Math.floor(number / 10);
   }
-  while (n > 9);
-  digits.push(n);
+  while (number > 9);
+  digits.push(number);
   digits.reverse();
 
   let minDigit = digits[0];
