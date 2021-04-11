@@ -18,7 +18,7 @@ function renameFiles(names) {
     return [];
   }
   const convertedFileNames = [];
-  convertedFileNames[0] = names[0];
+  convertedFileNames.push(names[0]);
 
   for (let i = 1; i < names.length; i++) {
     if (convertedFileNames.includes(names[i])) {
