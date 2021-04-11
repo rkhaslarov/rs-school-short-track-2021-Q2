@@ -21,79 +21,75 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(matrix) {
-  for(let i = 0; i < matrix.length; i++)
-  {
-    for(let j = 0; j < matrix[i].length; j++)
-    {
-      matrix[i][j] = matrix[i][j] === false ? 0 : 1;
-    }
-  }
-
-  let gameField = [];
-  for(let i = 0; i < matrix.length; i++)
-  {
-    gameField[i] = [];
-    for(let j = 0; j < matrix[i].length; j++)
-    {
-      if(matrix[i][j] === 1) {
-        gameField[i].push(1);
-      } else {
-        if(i === 0) {
-          let amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
-          let amountFromNext = getAmountFromNextLine(matrix, i, j);
-          let amountMines = amountFromCurrent + amountFromNext;
-          gameField[i].push(amountMines);
-        } else if(i === matrix.length - 1) {
-          let amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
-          let amountFromPrevious = getAmountFromPreviousLine(matrix, i, j);
-          let amountMines = amountFromCurrent + amountFromPrevious;
-          gameField[i].push(amountMines);
-        } else {
-          let amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
-          let amountFromPrevious = getAmountFromPreviousLine(matrix, i, j);
-          let amountFromNext = getAmountFromNextLine(matrix, i, j);
-          let amountMines = amountFromCurrent + amountFromPrevious + amountFromNext;
-          gameField[i].push(amountMines);
-        }
-      }
-    }
-  }
-  return gameField;
-}
-
 function getAmountFromCurrentLine(matrix, i, j) {
   let amountMines;
-  if(j === 0) {
-    amountMines = matrix[i][j] + matrix[i][j+1];
-  } else if(j === matrix[i].length - 1) {
-    amountMines = matrix[i][j] + matrix[i][j-1];
+  if (j === 0) {
+    amountMines = matrix[i][j] + matrix[i][j + 1];
+  } else if (j === matrix[i].length - 1) {
+    amountMines = matrix[i][j] + matrix[i][j - 1];
   } else {
-    amountMines = matrix[i][j] + matrix[i][j-1] + matrix[i][j+1];
+    amountMines = matrix[i][j] + matrix[i][j - 1] + matrix[i][j + 1];
   }
   return amountMines;
 }
 function getAmountFromPreviousLine(matrix, i, j) {
   let amountMines;
-  if(j === 0) {
-    amountMines = matrix[i-1][j] + matrix[i-1][j+1];
-  } else if(j === matrix[i].length - 1) {
-    amountMines = matrix[i-1][j] + matrix[i-1][j-1];
+  if (j === 0) {
+    amountMines = matrix[i - 1][j] + matrix[i - 1][j + 1];
+  } else if (j === matrix[i].length - 1) {
+    amountMines = matrix[i - 1][j] + matrix[i - 1][j - 1];
   } else {
-    amountMines = matrix[i-1][j] + matrix[i-1][j-1] + matrix[i-1][j+1];
+    amountMines = matrix[i - 1][j] + matrix[i - 1][j - 1] + matrix[i - 1][j + 1];
   }
   return amountMines;
 }
 function getAmountFromNextLine(matrix, i, j) {
   let amountMines;
-  if(j === 0) {
-    amountMines = matrix[i+1][j] + matrix[i+1][j+1];
-  } else if(j === matrix[i].length - 1) {
-    amountMines = matrix[i+1][j] + matrix[i+1][j-1];
+  if (j === 0) {
+    amountMines = matrix[i + 1][j] + matrix[i + 1][j + 1];
+  } else if (j === matrix[i].length - 1) {
+    amountMines = matrix[i + 1][j] + matrix[i + 1][j - 1];
   } else {
-    amountMines = matrix[i+1][j] + matrix[i+1][j+1] + matrix[i+1][j-1];
+    amountMines = matrix[i + 1][j] + matrix[i + 1][j + 1] + matrix[i + 1][j - 1];
   }
   return amountMines;
+}
+function minesweeper(matrix) {
+  const numberMatrix = [];
+  for (let i = 0; i < matrix.length; i++) {
+    numberMatrix[i] = [];
+    for (let j = 0; j < matrix[i].length; j++) {
+      const value = matrix[i][j] === false ? 0 : 1;
+      numberMatrix[i].push(value);
+    }
+  }
+
+  const gameField = [];
+  for (let i = 0; i < matrix.length; i++) {
+    gameField[i] = [];
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] === 1) {
+        gameField[i].push(1);
+      } else if (i === 0) {
+        const amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
+        const amountFromNext = getAmountFromNextLine(matrix, i, j);
+        const amountMines = amountFromCurrent + amountFromNext;
+        gameField[i].push(amountMines);
+      } else if (i === matrix.length - 1) {
+        const amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
+        const amountFromPrevious = getAmountFromPreviousLine(matrix, i, j);
+        const amountMines = amountFromCurrent + amountFromPrevious;
+        gameField[i].push(amountMines);
+      } else {
+        const amountFromCurrent = getAmountFromCurrentLine(matrix, i, j);
+        const amountFromPrevious = getAmountFromPreviousLine(matrix, i, j);
+        const amountFromNext = getAmountFromNextLine(matrix, i, j);
+        const amountMines = amountFromCurrent + amountFromPrevious + amountFromNext;
+        gameField[i].push(amountMines);
+      }
+    }
+  }
+  return gameField;
 }
 
 module.exports = minesweeper;
