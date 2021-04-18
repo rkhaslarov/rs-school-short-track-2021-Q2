@@ -14,10 +14,10 @@ describe('10-find-index', () => {
 
   it.optional('should return index of an element from sorted array with a given value', () => {
     assert.strictEqual(findIndex([1, 2, 3, 4, 5], 5), 4);
-    assert.strictEqual(findIndex([1, 2, 3, 4, 5], 3), 2);
-    assert.strictEqual(findIndex([1, 2, 3, 4, 5], 1), 0);
-    assert.strictEqual(findIndex([5, 6, 7], 7), 2);
-    assert.strictEqual(findIndex([5, 6, 7], 5), 0);
+    assert.strictEqual(findIndex([0, 2, 3, 5, 8, 10], 3), 2);
+    assert.strictEqual(findIndex([2, 3, 4, 7, 15], 15), 4);
+    assert.strictEqual(findIndex([3, 6, 7], 7), 2);
+    assert.strictEqual(findIndex([2, 12, 14, 17], 14), 2);
   });
 
   it.optional('should finish the search with the given time', () => {
